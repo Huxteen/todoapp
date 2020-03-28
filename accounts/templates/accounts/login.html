@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container">
+  <div class="col-md-5">
+
+    {% if messages %}
+    <div class="alert alert-info" role="alert">
+      {% for message in messages %}
+        {{message}}
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <form method="POST" action="{% url 'login' %}">
+      {% csrf_token %}
+      <h1>Login page</h1>
+
+      <label>Username</label>
+      <input class="form-control" type="text" placeholder="Username" name="username">
+
+      <label>Password</label>
+      <input class="form-control" type="password" placeholder="Password" name="password1">
+      
+      <br>
+      <button class="btn btn-info">Login</button>
+    </form>
+  </div>
+</div>
+
+
+
+
+<!-- <section style="background: green; z-index:13;">
+  <div class="container-fluid" style="background: green; z-index:13;padding: 150px;transform: rotate(5deg);">
+  </div>
+</section>
+
+<section style="background: blue; z-index:14;">
+<div class="container-fluid" style="background: blue; padding: 150px; z-index:14; transform: rotate(5deg);">
+</div>
+</section>
+
+<section style="background: red; z-index:15;">
+<div class="container-fluid" style="background: red; padding: 150px; z-index:15;transform: rotate(5deg);">
+</div>
+</section> -->
+{% endblock %}
